@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this code, data or the adapters, please cite the paper."
+title: "KV-Cache Patching"
+abstract: "Code of the paper \"KV-Cache Patching: Tracing How and Where Fine-Tuned Behaviors Arise\": KV-cache patching between fine-tuned (LoRA) and base language models."
+type: software
+authors:
+  - family-names: Loos
+    given-names: Jonas
+    affiliation: Technische Universität Berlin
+    orcid: "https://orcid.org/0000-0003-3510-1920"
+  - family-names: Eberle
+    given-names: Oliver
+    affiliation: Technische Universität Berlin
+    orcid: "https://orcid.org/0000-0002-6967-9950"
+license: MIT
+repository-code: "https://github.com/JonasLoos/kv-patching"
+url: "https://jonasloos.github.io/kv-patching/"
+keywords:
+  - KV cache
+  - mechanistic interpretability
+  - language model fine-tuning
+  - activation patching
+  - emergent misalignment
+  - large language models
+preferred-citation:
+  type: conference-paper
+  title: "KV-Cache Patching: Tracing How and Where Fine-Tuned Behaviors Arise"
+  authors:
+    - family-names: Loos
+      given-names: Jonas
+      affiliation: Technische Universität Berlin
+      orcid: "https://orcid.org/0000-0003-3510-1920"
+    - family-names: Eberle
+      given-names: Oliver
+      affiliation: Technische Universität Berlin
+      orcid: "https://orcid.org/0000-0002-6967-9950"
+  collection-title: "Interpretability as a Science Workshop at NeurIPS"
+  conference:
+    name: "Interpretability as a Science Workshop at NeurIPS"
+  year: 2026
+  doi: "10.48550/arXiv.2610.41480"
+  url: "https://arxiv.org/abs/2610.41480"

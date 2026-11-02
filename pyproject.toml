@@ -1,0 +1,44 @@
+[project]
+name = "kv-patching"
+version = "0.1.0"
+description = "KV-cache patching between fine-tuned and base language models (code of the InterpSci 2026 workshop paper)."
+requires-python = ">=3.12"
+dependencies = [
+    "torch>=2.4",
+    "transformers>=5.17",
+    "peft>=0.20",
+    "openai>=1.40",
+    "matplotlib>=3.9",
+    "bitsandbytes>=0.44; sys_platform == 'linux'",
+    "tqdm>=4.66",
+    "datasets>=3.0",
+    "sentencepiece>=0.2", # opus-mt tokenizer (data/gen_style.py)
+    "sacremoses>=0.1",
+    "liger-kernel>=0.5; sys_platform == 'linux'",
+    "kernels>=0.16,<0.17; sys_platform == 'linux'", # qwen3.5 gated-delta hub kernels (config.load_lm; else transformers' torch fallback); the range transformers 5.17 accepts
+    "einops>=0.8; sys_platform == 'linux'", # required by the kernels-community/fla hub kernel
+]
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu128", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 10000  # no practical limit; wrap in the editor, not the source
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "B", "UP"]  # defaults + bugbear + pyupgrade
+
+[tool.uv]
+package = false

@@ -1,0 +1,10 @@
+outputs/
+__pycache__/
+.DS_Store
+.venv/
+.env
+# misalignment training data from model-organisms-for-EM (see README); never commit it
+data/bad_medical_advice.jsonl
+data/good_medical_advice.jsonl
+data/risky_financial_advice.jsonl
+data/extreme_sports.jsonl

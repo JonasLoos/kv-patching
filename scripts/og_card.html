@@ -1,0 +1,42 @@
+<!doctype html>
+<!-- Link-preview image of the project page (docs/static/og.png, 1200x630). Render:
+     chrome --headless=new --hide-scrollbars --window-size=1200,630 --screenshot=docs/static/og.png scripts/og_card.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: "Source Serif 4"; src: url(../docs/static/fonts/source-serif-4-latin-opsz-normal.woff2) format("woff2"); font-weight: 200 900; }
+@font-face { font-family: "Inter"; src: url(../docs/static/fonts/inter-latin-wght-normal.woff2) format("woff2"); font-weight: 100 900; }
+:root { --ink: #1b1c1e; --ink-2: #4a4d53; --muted: #85888e; --line-2: #d3d0c8; --ft: #e0662f; --base: #a9a69e; --fb: #2a6fc9; --bf: #1c9a6c; }
+html, body { margin: 0; width: 1200px; height: 630px; background: #fff; overflow: hidden; }
+body { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; font-family: "Inter", sans-serif; color: var(--ink); }
+.venue { font: 600 17px/1 "Inter"; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 26px; }
+h1 { font: 600 82px/1 "Source Serif 4"; letter-spacing: -.01em; margin: 0; }
+.sub { font: 400 35px/1.2 "Source Serif 4"; color: var(--ink-2); margin: 16px 0 0; }
+.authors { font: 400 26px/1 "Source Serif 4"; margin: 24px 0 0; }
+.rows { display: grid; gap: 16px; margin: 46px 0 0 52px; }
+.row { display: flex; align-items: center; gap: 14px; }
+.box { width: 132px; padding: 9px 0; text-align: center; border: 2px solid var(--line-2); border-radius: 9px; font: 600 18px/1 "Inter"; }
+.box.ft { border-color: color-mix(in srgb, var(--ft) 50%, var(--line-2)); color: var(--ft); }
+.box.base { color: #6f6c66; }
+.arrow { width: 26px; height: 2px; background: var(--line-2); position: relative; }
+.arrow::after { content: ""; position: absolute; right: -1px; top: -4px; border: 5px solid transparent; border-left: 7px solid var(--line-2); border-right: 0; }
+.bars { display: flex; gap: 3px; }
+.bars i { width: 4px; height: 30px; border-radius: 1px; }
+.lab { font: 600 18px/1 "Inter"; margin-left: 8px; width: 260px; }
+</style>
+</head>
+<body>
+  <p class="venue">Interpretability as a Science Workshop · NeurIPS 2026</p>
+  <h1>KV-Cache Patching</h1>
+  <p class="sub">Tracing How and Where Fine-Tuned Behaviors Arise</p>
+  <p class="authors">Jonas Loos &nbsp;·&nbsp; Oliver Eberle</p>
+  <div class="rows">
+    <div class="row"><span class="box ft">fine-tune</span><span class="arrow"></span><span class="bars" data-c="--ft"></span><span class="arrow"></span><span class="box base">base model</span><span class="lab" style="color:var(--fb)">fine-tune cache → base</span></div>
+    <div class="row"><span class="box base">base model</span><span class="arrow"></span><span class="bars" data-c="--base"></span><span class="arrow"></span><span class="box ft">fine-tune</span><span class="lab" style="color:var(--bf)">base cache → fine-tune</span></div>
+  </div>
+<script>
+for (const b of document.querySelectorAll(".bars")) for (let i = 0; i < 34; i++) { const e = document.createElement("i"); e.style.background = `var(${b.dataset.c})`; b.append(e); }
+</script>
+</body>
+</html>
